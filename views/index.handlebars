@@ -1,0 +1,31 @@
+{{#if shortURL}}
+<div class="result text-center">
+
+	<h3 class="m-3">Success! Please use this link:</h3>
+	<p class="h2 text-primary fw-bold m-3" id="generatedURL">{{origin}}/{{shortURL}}</p>
+
+	<div class="text-center">
+	<button class="btn btn-success copy " onclick="copy()">Copy</button>
+	<a class="btn btn-secondary" href="/">Back to home</a>
+	</div>
+</div>
+<script>
+	function copy() {
+		const URL = document.getElementById("generatedURL")
+		navigator.clipboard.writeText(URL.innerText)
+			.then(() => alert('copied'))
+			.catch(error => console.log(error))
+	}
+</script>
+{{else}}
+<form action="/" method="POST">
+	<div class="container-sm text-center mt-3">
+		<h1 class="text-center m-2">Please enter URL</h1>
+		{{!-- 使用required防止未輸入type="url"內容 --}}
+		<input class="form-control mb-3"  type="url" name="url" placeholder="Input URL here" required />
+		<button class="btn btn-success" type="submit"> Shorten</button>
+
+	</div>
+</form>
+
+{{/if}}
