@@ -26,7 +26,7 @@ cd URL_Shortener
 ```
 3. 安裝`npm`套件。在終端機輸入：
 ```
-npm init -y
+npm install
 ```
 4. 設定暫時環境變數以連接 MongoDB 資料庫，請在終端機輸入：
 ```
